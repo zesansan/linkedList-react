@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import SignInForm from "./SignInForm";
-import SignUpForm from "./SignUpForm";
+import SignInForm from "../organisms/SignInForm";
+import SignUpForm from "../organisms/SignUpForm";
 import logo from "./logo.png";
 import callAPI from "../services/api.js";
 import "./Home.css";
