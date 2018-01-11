@@ -11,6 +11,7 @@ const SignInForm = props => {
 					value={props.username}
 					placeholder="name"
 				/>
+				<br />
 				<input
 					type="password"
 					onChange={props.handleChange}
@@ -18,6 +19,8 @@ const SignInForm = props => {
 					value={props.password}
 					placeholder="password"
 				/>
+				<br />
+				<input type="submit" value="Sign In!" />
 			</form>
 		</div>
 	);
