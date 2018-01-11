@@ -2,20 +2,9 @@ import React, { Component } from "react";
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
 import logo from "./logo.png";
-import axios from "axios";
+import callAPI from "../services/api.js";
 import "./Home.css";
 import { Link, Route, Switch } from "react-router-dom";
-
-function callAPI() {
-  return axios
-    .get("localhost:3001/users")
-    .then(res => {
-      return res.data;
-    })
-    .catch(err => {
-      return err;
-    });
-}
 
 class App extends Component {
   constructor(props) {
@@ -39,9 +28,13 @@ class App extends Component {
   render() {
     return (
       <div className="Home">
-        <img src={logo} />
+        <img src={logo} className="App-logo" />
         <div>
           <SignInForm
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+          />
+          <SignUpForm
             onChange={this.handleChange}
             onSubmit={this.handleSubmit}
           />

@@ -42,9 +42,14 @@ const SignUpForm = props => (
 				onChange={props.handleChange}
 				value={props.value}
 			/>
-
-			<p>ProfilePhoto</p>
-			<a href="url">CLICK TO UPLOAD</a>
+			<br />
+			<input
+				type="url"
+				name="profilephoto"
+				placeholder="url for profile photo"
+				onChange={props.handleChange}
+				value={props.value}
+			/>
 			<br />
 			<input type="submit" value="I'm In!" />
 		</form>
