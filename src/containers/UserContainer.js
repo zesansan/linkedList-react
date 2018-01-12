@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as userFunctions from "../store/actions/actionCreators";
+import * as userFunctions from "../store/actions/userActionCreators";
 
 class UserContainer extends Component {
 	componentDidMount() {
