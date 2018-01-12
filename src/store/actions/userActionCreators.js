@@ -1,7 +1,7 @@
 import * as t from "./constants";
 import { getRequest, postRequest } from "../../../services/api";
 
-function userSignupRequest(userData) {
+export function userSignupRequest(userData) {
   return async function(dispatch) {
     dispatch({ type: t.USER_SIGNUP_REQUEST });
     try {
@@ -13,14 +13,14 @@ function userSignupRequest(userData) {
   };
 }
 
-function userSignupSuccess(user) {
+export function userSignupSuccess(user) {
   return {
     type: t.USER_SIGNUP_SUCCESS,
     user
   };
 }
 
-function userSignupFail(error) {
+export function userSignupFail(error) {
   return {
     type: t.USER_SIGNUP_FAIL,
     error

@@ -1,3 +1,9 @@
+import {
+  USER_SIGNUP_REQUEST,
+  USER_SIGNUP_SUCCESS,
+  USER_SIGNUP_FAIL
+} from "../actions/constants";
+
 const DEFAULT_STATE = {
   username: null,
   firstName: null,
@@ -13,6 +19,15 @@ const DEFAULT_STATE = {
 
 const userReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
+    case USER_SIGNUP_REQUEST: {
+      const newUsers = [...state.users, action.newUser];
+      return { ...state, users: newUsers };
+    }
+    case USER_SIGNUP_SUCCESS: {
+      const newUsers = [...state.users, action.newUser];
+      return { ...state, users: newUsers };
+    }
+    case USER_SIGNUP_FAIL:
     default:
       return { ...state };
   }
