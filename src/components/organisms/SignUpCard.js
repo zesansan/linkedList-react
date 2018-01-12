@@ -42,8 +42,11 @@ class SignUpCard extends Component {
             username={this.state.userame}
             password={this.state.password}
           />
+          <br />
           <a href="url">Profile Photo</a>
-          <StyledButton>Im In!</StyledButton>
+          <p>
+            <StyledButton primary="true">Im In!</StyledButton>
+          </p>
         </Card>
       </div>
     );
