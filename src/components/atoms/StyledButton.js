@@ -1,7 +1,14 @@
-//import styled from "styled-components";
+import styled from "styled-components";
 
-const Card = styled.div`
-	width: ${props => props.width}px;
+
+const StyledButton = styled.button`
+	height: 20px;
+	width: 80px;
+	border-radius: 5px;
+
 `;
 
-export default Card;
+
+
+
+export default StyledButton;
