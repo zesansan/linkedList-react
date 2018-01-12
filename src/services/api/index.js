@@ -15,7 +15,7 @@ const api = axios.create({
  * @param {Object} data - data object
  */
 export function postRequest(path, data) {
-	api
+	return api
 		.post(path, data)
 		.then(response => {
 			return response.data;
@@ -26,7 +26,7 @@ export function postRequest(path, data) {
 }
 
 export function getRequest(path) {
-	api
+	return api
 		.get(path)
 		.then(response => {
 			return response.data;
