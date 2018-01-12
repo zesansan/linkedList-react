@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import SignInForm from "../organisms/SignInForm";
-import SignUpForm from "../organisms/SignUpForm";
 import logo from "./logo.png";
-import callAPI from "../services/api.js";
-import "./Home.css";
-import { Link, Route, Switch } from "react-router-dom";
+import getRequest from "../../services/api/index";
+import "./App.css";
+//import { Link, Route, Switch } from "react-router-dom";
+import SignInCard from "../organisms/SignInCard";
+import SignUpCard from "../organisms/SignUpCard";
+
 
 class App extends Component {
   constructor(props) {
@@ -13,9 +14,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    callAPI().then(res => {
-      alert(res);
-    });
+    getRequest();
   }
   handleChange(e) {
     this.setState({
@@ -27,18 +26,17 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="Home">
-        <img src={logo} className="App-logo" />
+      <div className="App">
+        <img src={logo} className="App-logo" alt='Winston' />
         <div>
-          <SignInForm
-            onChange={this.handleChange}
+          <SignInCard className="App"
             onSubmit={this.handleSubmit}
           />
-          <SignUpForm
-            onChange={this.handleChange}
+          <SignUpCard className="App"
             onSubmit={this.handleSubmit}
           />
         </div>
+
       </div>
     );
   }

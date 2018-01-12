@@ -51,7 +51,6 @@ const SignUpForm = props => (
 				value={props.value}
 			/>
 			<br />
-			<input type="submit" value="I'm In!" />
 		</form>
 	</div>
 );
