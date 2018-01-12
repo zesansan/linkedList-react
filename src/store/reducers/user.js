@@ -1,3 +1,9 @@
+import {
+  USER_SIGNUP_REQUEST,
+  USER_SIGNUP_SUCCESS,
+  USER_SIGNUP_FAIL
+} from "../actions/constants";
+
 const DEFAULT_STATE = {
   username: null,
   firstName: null,
