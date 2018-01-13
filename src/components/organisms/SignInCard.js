@@ -16,10 +16,10 @@ class SignInCard extends Component {
     return (
       <div>
         <Card width="360">
-          <h4 className="App-title">
+          <h6 className="App-title">
             Welcome to LinkedList, where you can totally like, land a sweet
             developer job or whatever...
-          </h4>
+          </h6>
           <SignInForm onSubmit={this.handleSubmit} />
           <br />
           <StyledButton>Sign Up!</StyledButton>
@@ -27,7 +27,7 @@ class SignInCard extends Component {
             Log In!
           </StyledButton>
           <p>
-            <a>Sign in as a company</a>
+            <a><small>Sign in as a company</small></a>
           </p>
           <br />
         </Card>
