@@ -5,6 +5,7 @@ import StyledButton from "../atoms/StyledButton";
 import * as allMyFunctions from '../../store/actions/userActionCreators';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 class SignUpCard extends Component {
@@ -29,8 +30,8 @@ class SignUpCard extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.signup(this.state).then(() => {
-      this.props.history.push("/jobs");
-    })
+      this.props.history.push('/login');
+    }, err => {});
 
   }
 
@@ -64,5 +65,8 @@ class SignUpCard extends Component {
 // use withRouter so that you can redirect after a successful signup
 // use connect to make sure you can dispatch the action creator signup
 //export default SignUpCard;
+SignUpCard.propTypes = {
+  signup: PropTypes.func.isRequired
+};
 
-export default withRouter(connect(null, allMyFunctions))(SignUpCard);
+export default withRouter(connect(null, allMyFunctions)(SignUpCard));
