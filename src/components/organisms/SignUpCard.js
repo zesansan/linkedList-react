@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import SignUpForm from "../molecules/SignUpForm";
 import Card from "../atoms/Card";
 import StyledButton from "../atoms/StyledButton";
-import * as allMyFunctions from '../../store/actions/userActionCreators';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
+import * as allMyFunctions from "../../store/actions/userActionCreators";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class SignUpCard extends Component {
   constructor(props) {
@@ -29,10 +28,12 @@ class SignUpCard extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state).then(() => {
-      this.props.history.push('/login');
-    }, err => {});
-
+    this.props.signup(this.state).then(
+      () => {
+        this.props.history.push("/signin");
+      },
+      err => {}
+    );
   }
 
   render() {
@@ -59,8 +60,6 @@ class SignUpCard extends Component {
     );
   }
 }
-
-
 
 // use withRouter so that you can redirect after a successful signup
 // use connect to make sure you can dispatch the action creator signup

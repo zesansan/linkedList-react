@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import SignInForm from "../molecules/SignInForm";
 import StyledButton from "../atoms/StyledButton";
 import Card from "../atoms/Card";
-import * as allMyFunctions from '../../store/actions/userActionCreators';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import * as allMyFunctions from "../../store/actions/userActionCreators";
+import { connect } from "react-redux";
+import { withRouter, Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class SignInCard extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: '',
-      password: ''
+      username: "",
+      password: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,11 +23,10 @@ class SignInCard extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state).then(() => {
-      this.props.history.push('/welcome')
+      this.props.history.push("/welcome");
     });
   }
   render() {
@@ -41,7 +40,9 @@ class SignInCard extends Component {
           </h6>
           <SignInForm onSubmit={this.handleSubmit} />
           <br />
-          <StyledButton>Sign Up!</StyledButton>
+          <Link to="/signup">
+            <StyledButton>Sign Up!</StyledButton>
+          </Link>
           <StyledButton onClick={this.handleSubmit} primary="false">
             Log In!
           </StyledButton>
@@ -57,7 +58,7 @@ class SignInCard extends Component {
 
 SignInCard.propTypes = {
   login: PropTypes.func.isRequired
-}
+};
 
 // export default SignInCard;
 export default withRouter(connect(null, allMyFunctions)(SignInCard));
