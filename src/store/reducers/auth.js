@@ -1,11 +1,9 @@
-
-
 const DEFAULT_STATE = {
-  isAuthenticated: false
+	isAuthenticated: false
 };
 
 const authReducer = (state = DEFAULT_STATE, action) => {
-  switch (action.type) {
-    case SET_CURRENT_USER:
-  }
-}
+	switch (action.type) {
+		case SET_CURRENT_USER:
+	}
+};

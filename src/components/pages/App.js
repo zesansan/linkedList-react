@@ -4,6 +4,7 @@ import "./App.css";
 import { Link, Route, Switch } from "react-router-dom";
 import SignInCard from "../organisms/SignInCard";
 import SignUpCard from "../organisms/SignUpCard";
+import Welcome from "../organisms/Welcome";
 
 class App extends Component {
   constructor(props) {
@@ -24,8 +25,21 @@ class App extends Component {
       <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
         <div className="card">
-          <SignInCard onSubmit={this.handleSubmit} />
-          <SignUpCard onSubmit={this.handleSubmit} />
+          <Switch>
+            <Route
+              path="/signup"
+              component={props => <SignUpCard onSubmit={this.handleSubmit} />}
+            />
+            <Route
+              path="/signin"
+              component={props => <SignInCard onSubmit={this.handleSubmit} />}
+            />
+            <Route path="/welcome" component={Welcome} />
+            <Route
+              path="/"
+              component={props => <SignInCard onSubmit={this.handleSubmit} />}
+            />
+          </Switch>
         </div>
       </div>
     );
