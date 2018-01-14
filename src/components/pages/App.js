@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-//import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import SignInCard from "../organisms/SignInCard";
 import SignUpCard from "../organisms/SignUpCard";
 
