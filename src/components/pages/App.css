@@ -23,7 +23,7 @@ body {
 }
 
 .App-title {
-	font-size: .9em;
+	font-size: 0.9em;
 }
 
 .card {
@@ -31,3 +31,4 @@ body {
 	padding-right: 0px;
 	margin-right: 0px;
 }
+
