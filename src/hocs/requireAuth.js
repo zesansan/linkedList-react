@@ -15,7 +15,6 @@ export default function(ComponentToBeRendered) {
 			}
 		}
 		render() {
-			console.log(<ComponentToBeRendered {...this.props} />);
 			return <ComponentToBeRendered {...this.props} />;
 		}
 	}
@@ -26,3 +25,4 @@ export default function(ComponentToBeRendered) {
 	}
 	return withRouter(connect(mapStateToProps)(Authenticate));
 }
+

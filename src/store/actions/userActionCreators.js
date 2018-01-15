@@ -1,9 +1,8 @@
 import * as t from "./constants";
 import { postRequest } from "../../services/api/index";
-import axios from 'axios';
-import jwtDecode from 'jwt-decode';
-import API_URL from './../configure';
-
+import axios from "axios";
+import jwtDecode from "jwt-decode";
+import API_URL from "./../configure";
 
 export function userSignupRequest(userData) {
   return async function(dispatch) {
@@ -33,40 +32,40 @@ export function userSignupFail(error) {
 
 export function setAuthorizationToken(token) {
   if (token) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   } else {
-    delete axios.defaults.headers.common['Authorization'];
+    delete axios.defaults.headers.common["Authorization"];
   }
 }
 
 export function signup(userData) {
   return dispatch => {
     return axios.post(`${API_URL}/api/users`, userData);
-  }
+  };
 }
 
 export function logout() {
   return dispatch => {
-    localStorage.removeItem('jwtToken');
+    localStorage.removeItem("jwtToken");
     setAuthorizationToken(false);
     dispatch(setCurrentUser({}));
-  }
+  };
 }
 
 export function login(data) {
   return dispatch => {
     return axios.post(`${API_URL}/api/users/auth`, data).then(res => {
       const token = res.data;
-      localStorage.setItem('jwtToken', token);
+      localStorage.setItem("jwtToken", token);
       setAuthorizationToken(token);
       dispatch(setCurrentUser(jwtDecode(token)));
-    })
-  }
+    });
+  };
 }
 
 export function setCurrentUser(user) {
   return {
-    type:t.SET_CURRENT_USER,
+    type: t.SET_CURRENT_USER,
     user
   };
 }
