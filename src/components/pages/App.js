@@ -7,6 +7,7 @@ import SignInCard from "../organisms/SignInCard";
 import SignUpCard from "../organisms/SignUpCard";
 import Welcome from "../organisms/Welcome";
 import requireAuth from "../../hocs/requireAuth";
+import * as allMyFunctions from "../../store/actions/userActionCreators";
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends Component {
             />
             <Route path="/welcome" component={requireAuth(Welcome)} />
             <Route path="/" component={props => <SignInCard {...props} />} />
+            <Route render={() => <h3>No Match</h3>} />
           </Switch>
         </div>
       </div>
@@ -41,4 +43,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, allMyFunctions)(App);
