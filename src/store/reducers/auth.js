@@ -1,9 +1,4 @@
-import {
-	USER_SIGNUP_REQUEST,
-	USER_SIGNUP_SUCCESS,
-	USER_SIGNUP_FAIL,
-	SET_CURRENT_USER
-} from "../actions/constants";
+import { SET_CURRENT_USER } from "../actions/constants";
 
 const DEFAULT_STATE = {
 	isAuthenticated: false,
@@ -15,7 +10,7 @@ const authReducer = (state = DEFAULT_STATE, action) => {
 		case SET_CURRENT_USER:
 			return {
 				isAuthenticated: true,
-				user: action.user
+				user: action.user.userId
 			};
 		default:
 			return DEFAULT_STATE;
