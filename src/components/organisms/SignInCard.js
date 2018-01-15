@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SignInForm from "../molecules/SignInForm";
 import StyledButton from "../atoms/StyledButton";
+import SignUpCard from "./SignUpCard";
 import Card from "../atoms/Card";
 import * as allMyFunctions from "../../store/actions/userActionCreators";
 import { connect } from "react-redux";

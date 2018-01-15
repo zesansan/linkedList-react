@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SignUpForm from "../molecules/SignUpForm";
 import Card from "../atoms/Card";
 import StyledButton from "../atoms/StyledButton";
-import * as allMyFunctions from "../../store/actions/userActionCreators";
+import * as userFunctions from "../../store/actions/userActionCreators";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -53,7 +53,9 @@ class SignUpCard extends Component {
           <br />
           <a href="url">Profile Photo</a>
           <p>
-            <StyledButton primary="true">Im In!</StyledButton>
+            <StyledButton primary="true" onClick={this.handleSubmit}>
+              Im In!
+            </StyledButton>
           </p>
         </Card>
       </div>
@@ -68,4 +70,4 @@ SignUpCard.propTypes = {
   signup: PropTypes.func.isRequired
 };
 
-export default withRouter(connect(null, allMyFunctions)(SignUpCard));
+export default withRouter(connect(null, userFunctions)(SignUpCard));
