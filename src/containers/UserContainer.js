@@ -13,7 +13,6 @@ class UserContainer extends Component {
 
 function mapStateToProps(state) {
 	return {
-		isAuthenticated: state.isAuthenticated,
 		user: state.user
 	};
 }

@@ -14,7 +14,7 @@ const authReducer = (state = DEFAULT_STATE, action) => {
 	switch (action.type) {
 		case SET_CURRENT_USER:
 			return {
-				isAuthenticated: false,
+				isAuthenticated: true,
 				user: action.user
 			};
 		default:

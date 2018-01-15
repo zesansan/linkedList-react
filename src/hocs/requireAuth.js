@@ -24,7 +24,7 @@ export default function(ComponentToBeRendered) {
 	}
 	function mapStateToProps(state) {
 		return {
-			isAuthenticated: state.isAuthenticated.isAuthenticated
+			isAuthenticated: state.auth.isAuthenticated
 		};
 	}
 	return withRouter(connect(mapStateToProps)(Authenticate));

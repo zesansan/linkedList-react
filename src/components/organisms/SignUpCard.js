@@ -50,8 +50,6 @@ class SignUpCard extends Component {
             username={this.state.userame}
             password={this.state.password}
           />
-          <br />
-          <a href="url">Profile Photo</a>
           <p>
             <StyledButton primary="true" onClick={this.handleSubmit}>
               Im In!
