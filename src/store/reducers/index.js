@@ -6,7 +6,7 @@ import authReducer from "./auth";
 const rootReducer = combineReducers({
 	user: userReducer,
 	company: companyReducer,
-	isAuthenticated: authReducer
+	auth: authReducer
 });
 
 export default rootReducer;

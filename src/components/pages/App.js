@@ -32,7 +32,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: state.isAuthenticated
+    auth: state.auth,
+    user: state.user,
+    company: state.company
   };
 }
 
