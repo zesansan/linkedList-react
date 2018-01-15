@@ -1,25 +1,18 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Link, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import { Route, Switch } from "react-router-dom";
 import SignInCard from "../organisms/SignInCard";
 import SignUpCard from "../organisms/SignUpCard";
 import Welcome from "../organisms/Welcome";
+import requireAuth from "../../hocs/requireAuth";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-  handleSubmit(e) {
-    e.preventDefault();
-  }
+
   render() {
     return (
       <div className="App">
@@ -28,22 +21,24 @@ class App extends Component {
           <Switch>
             <Route
               path="/signup"
-              component={props => <SignUpCard onSubmit={this.handleSubmit} />}
+              component={props => <SignUpCard {...props} />}
             />
             <Route
               path="/signin"
-              component={props => <SignInCard onSubmit={this.handleSubmit} />}
+              component={props => <SignInCard {...props} />}
             />
-            <Route path="/welcome" component={Welcome} />
-            <Route
-              path="/"
-              component={props => <SignInCard onSubmit={this.handleSubmit} />}
-            />
+            <Route path="/welcome" component={requireAuth(Welcome)} />
+            <Route path="/" component={props => <SignInCard {...props} />} />
           </Switch>
         </div>
       </div>
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    auth: state.isAuthenticated
+  };
+}
 
-export default App;
+export default connect(mapStateToProps)(App);

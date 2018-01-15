@@ -5,16 +5,25 @@ const SignInForm = props => {
 	return (
 		<div>
 			<form onSubmit={props.handleSubmit}>
-				<input type='text'
-			        name='username'
-			        placeholder='username'
-			        value={props.username}
-				 /><br/>
-				 <input type='password'
- 			        name='password'
- 			        placeholder='*********'
- 			        value={props.password}
- 				 />
+				<label>
+					Username:
+					<input
+						type="text"
+						name="username"
+						placeholder="username"
+						value={props.username}
+					/>
+				</label>
+				<br />
+				<label>
+					Password:
+					<input
+						type="password"
+						name="password"
+						placeholder="*********"
+						value={props.password}
+					/>
+				</label>
 			</form>
 		</div>
 	);
