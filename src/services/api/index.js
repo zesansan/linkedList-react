@@ -1,7 +1,7 @@
 import axios from "axios";
 import processAJAXError from "../../helpers/processAJAXError";
 
-const API_URL = process.env.API_URL || "http://localhost:3001"; // express server URI
+export const API_URL = process.env.API_URL || "http://localhost:3001";
 
 const api = axios.create({
 	baseURL: API_URL,

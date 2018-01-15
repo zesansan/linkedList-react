@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import SignInForm from "../molecules/SignInForm";
 import StyledButton from "../atoms/StyledButton";
-import SignUpCard from "./SignUpCard";
 import Card from "../atoms/Card";
-import * as allMyFunctions from "../../store/actions/userActionCreators";
+import * as userFunctions from "../../store/actions/userActionCreators";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -36,19 +35,22 @@ class SignInCard extends Component {
       <div>
         <Card width="360">
           <h6 className="App-title">
-            Welcome to LinkedList, where you can totally like, land a sweet
-            developer job or whatever...
+            Welcome to LinkedList, <br />where you can totally like, <br />land
+            a sweet developer job or whatever.
           </h6>
-          <SignInForm onSubmit={this.handleSubmit} />
+          <SignInForm
+            onSubmit={this.handleSubmit}
+            value={(username, password)}
+          />
           <br />
-          <Link to="/signup">
-            <StyledButton>Sign Up!</StyledButton>
-          </Link>
           <StyledButton onClick={this.handleSubmit} primary="false">
             Log In!
           </StyledButton>
           <p>
-            <a>Sign in as a company</a>
+            <Link to="/signup">Don't have an acount? Sign Up!</Link>
+          </p>
+          <p>
+            <Link to="/company/signin">Sign in as a company</Link>
           </p>
           <br />
         </Card>
@@ -62,4 +64,4 @@ SignInCard.propTypes = {
 };
 
 // export default SignInCard;
-export default withRouter(connect(null, allMyFunctions)(SignInCard));
+export default withRouter(connect(null, userFunctions)(SignInCard));

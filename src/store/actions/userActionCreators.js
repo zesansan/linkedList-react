@@ -2,24 +2,18 @@ import * as t from "./constants";
 import { postRequest } from "../../services/api/index";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import API_URL from "./../configure";
 
 export function userSignupRequest(userData) {
   return async function(dispatch) {
-    dispatch({ type: t.USER_SIGNUP_REQUEST });
     try {
-      const newUser = await postRequest("/users", userData);
-      return dispatch(userSignupSuccess(newUser));
+      const newUser = await axios.post(`${t.API_URL}/users/signup`, userData);
+      const token = newUser.data.token;
+      localStorage.setItem("jwtToken", token);
+      setAuthorizationToken(token);
+      return dispatch(setCurrentUser(jwtDecode(token)));
     } catch (error) {
       return dispatch(userSignupFail(error));
     }
-  };
-}
-
-export function userSignupSuccess(user) {
-  return {
-    type: t.USER_SIGNUP_SUCCESS,
-    user
   };
 }
 
@@ -30,18 +24,24 @@ export function userSignupFail(error) {
   };
 }
 
+export function userSigninFail(error) {
+  return {
+    type: t.USER_SIGNIN_FAIL,
+    error
+  };
+}
+export function setCurrentUser(user) {
+  return {
+    type: t.SET_CURRENT_USER,
+    user
+  };
+}
 export function setAuthorizationToken(token) {
   if (token) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   } else {
     delete axios.defaults.headers.common["Authorization"];
   }
-}
-
-export function signup(userData) {
-  return dispatch => {
-    return axios.post(`${API_URL}/api/users`, userData);
-  };
 }
 
 export function logout() {
@@ -53,19 +53,15 @@ export function logout() {
 }
 
 export function login(data) {
-  return dispatch => {
-    return axios.post(`${API_URL}/api/users/auth`, data).then(res => {
-      const token = res.data;
+  return async function(dispatch) {
+    try {
+      const newUser = axios.post(`${t.API_URL}/users/signin`, data);
+      const token = newUser.data.token;
       localStorage.setItem("jwtToken", token);
       setAuthorizationToken(token);
-      dispatch(setCurrentUser(jwtDecode(token)));
-    });
-  };
-}
-
-export function setCurrentUser(user) {
-  return {
-    type: t.SET_CURRENT_USER,
-    user
+      return dispatch(setCurrentUser(jwtDecode(token)));
+    } catch (error) {
+      return dispatch(userSigninFail(error));
+    }
   };
 }
