@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { connect } from "react-redux";
 import { Route, Switch, withRouter } from "react-router-dom";
@@ -16,7 +15,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
         <div className="card">
           <Switch>
             <Route exact path="/signup" component={SignUpCard} />

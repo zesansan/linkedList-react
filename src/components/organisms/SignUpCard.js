@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SignUpForm from "../molecules/SignUpForm";
 import Card from "../atoms/Card";
+import Logo from "../atoms/Logo";
 import StyledButton from "../atoms/StyledButton";
 import * as userFunctions from "../../store/actions/userActionCreators";
 import { connect } from "react-redux";
@@ -39,7 +40,8 @@ class SignUpCard extends Component {
   render() {
     return (
       <div>
-        <Card width="360">
+        <Logo />
+        <Card width="400">
           <h5>Please give us all of the information.</h5>
           <SignUpForm
             handleSubmit={this.handleSubmit}

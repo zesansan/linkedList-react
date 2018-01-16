@@ -8,27 +8,14 @@ html {
 }
 body {
 	font-family: sans-serif;
-	display: flex;
-	justify-content: center;
 }
 .App {
+	display: flex;
+	justify-content: center;
+	position: relative;
 	text-align: center;
 }
 
-.App-logo {
-	padding-right: 20px;
-	padding-top: 50px;
-	padding-bottom: 0px;
-	height: 200px;
-}
-
 .App-title {
-	font-size: 0.9em;
+	font-size: 1em;
 }
-
-.card {
-	padding-left: 110px;
-	padding-right: 0px;
-	margin-right: 0px;
-}
-

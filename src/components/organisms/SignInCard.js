@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SignInForm from "../molecules/SignInForm";
 import StyledButton from "../atoms/StyledButton";
 import Card from "../atoms/Card";
+import Logo from "../atoms/Logo";
 import * as userFunctions from "../../store/actions/userActionCreators";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
@@ -10,7 +11,6 @@ import PropTypes from "prop-types";
 class SignInCard extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       userName: "",
       password: ""
@@ -33,7 +33,8 @@ class SignInCard extends Component {
     const { userName, password } = this.state;
     return (
       <div>
-        <Card width="360">
+        <Logo />
+        <Card width="400">
           <h6 className="App-title">
             Welcome to LinkedList, <br />where you can totally like, <br />land
             a sweet developer job or whatever.
