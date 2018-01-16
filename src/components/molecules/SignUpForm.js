@@ -3,7 +3,7 @@ import { TextField } from "material-ui";
 
 const SignUpForm = props => (
 	<div>
-		<form onSubmit={props.handleSubmit}>
+		<form onSubmit={props.handleSubmit} autocomplete="off">
 			<TextField
 				type="email"
 				name="email"
