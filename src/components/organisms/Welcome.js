@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import UserInfoCard from "../molecules/UserInfoCard";
+import UserExperienceCard from "../molecules/UserExperienceCard";
+import UserEducationCard from "../molecules/UserEducationCard";
 class Welcome extends Component {
 	constructor(props) {
 		super(props);
@@ -14,6 +16,8 @@ class Welcome extends Component {
 		return (
 			<div>
 				<UserInfoCard propfilePicture={this.state.profilePicture} />
+				<UserExperienceCard />
+				<UserEducationCard />
 			</div>
 		);
 	}
