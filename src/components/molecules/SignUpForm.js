@@ -1,74 +1,67 @@
 import React from "react";
+import { TextField } from "material-ui";
 
 const SignUpForm = props => (
 	<div>
 		<form onSubmit={props.handleSubmit}>
-			<label>
-				Email:
-				<input
-					type="email"
-					name="email"
-					placeholder="email"
-					onChange={props.handleChange}
-					value={props.value}
-				/>
-			</label>
+			<TextField
+				type="email"
+				name="email"
+				hintText="Email"
+				floatingLabelText="Email"
+				onChange={props.handleChange}
+				value={props.email}
+			/>
 			<br />
-			<label>
-				{" "}
-				First Name:
-				<input
-					type="text"
-					name="firstName"
-					placeholder="first name"
-					onChange={props.handleChange}
-					value={props.value}
-				/>
-			</label>
+			<TextField
+				type="text"
+				name="firstName"
+				hintText="First Name"
+				floatingLabelText="First Name"
+				onChange={props.handleChange}
+				value={props.firstName}
+			/>
+
 			<br />
-			<label>
-				Last Name:
-				<input
-					type="text"
-					name="lastName"
-					placeholder="last name"
-					onChange={props.handleChange}
-					value={props.value}
-				/>
-			</label>
+
+			<TextField
+				type="text"
+				name="lastName"
+				hintText="Last Name"
+				floatingLabelText="Last Name"
+				onChange={props.handleChange}
+				value={props.lastName}
+			/>
 			<br />
-			<label>
-				Username:
-				<input
-					type="text"
-					name="userName"
-					placeholder="username"
-					onChange={props.handleChange}
-					value={props.value}
-				/>
-			</label>
+
+			<TextField
+				type="text"
+				name="userName"
+				hintText="Username"
+				floatingLabelText="Username"
+				onChange={props.handleChange}
+				value={props.userName}
+			/>
 			<br />
-			<label>
-				Password:
-				<input
-					type="password"
-					name="password"
-					placeholder="password"
-					onChange={props.handleChange}
-					value={props.value}
-				/>
-			</label>
+
+			<TextField
+				type="password"
+				name="password"
+				hintText="Password"
+				floatingLabelText="Password"
+				onChange={props.handleChange}
+				value={props.password}
+			/>
+
 			<br />
-			<label>
-				Profile Pic:
-				<input
-					type="url"
-					name="profilephoto"
-					placeholder="url for profile photo"
-					onChange={props.handleChange}
-					value={props.value}
-				/>
-			</label>
+			<TextField
+				type="url"
+				name="profilephoto"
+				hintText="Profile Photo"
+				floatingLabelText="Profile Photo"
+				onChange={props.handleChange}
+				value={props.value}
+			/>
 			<br />
 		</form>
 	</div>

@@ -1,31 +1,26 @@
 import React from "react";
-//import StyledButton from "../atoms/StyledButton";
+import { TextField } from "material-ui";
 
 const SignInForm = props => {
 	return (
 		<div>
 			<form onSubmit={props.handleSubmit}>
-				<label>
-					Username:
-					<input
-						type="text"
-						name="userName"
-						placeholder="username"
-						onChange={props.handleChange}
-						value={props.userName}
-					/>
-				</label>
+				<TextField
+					hintText="Username"
+					name="userName"
+					floatingLabelText="Username"
+					onChange={props.handleChange}
+					value={props.userName}
+				/>
 				<br />
-				<label>
-					Password:
-					<input
-						type="password"
-						name="password"
-						placeholder="*********"
-						onChange={props.handleChange}
-						value={props.password}
-					/>
-				</label>
+				<TextField
+					hintText="***********"
+					floatingLabelText="Password"
+					type="password"
+					name="password"
+					onChange={props.handleChange}
+					value={props.password}
+				/>
 			</form>
 		</div>
 	);
