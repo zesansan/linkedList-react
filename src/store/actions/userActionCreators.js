@@ -1,5 +1,4 @@
 import * as t from "./constants";
-import { postRequest } from "../../services/api/index";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
@@ -30,6 +29,7 @@ export function userSigninFail(error) {
     error
   };
 }
+
 export function setCurrentUser(user) {
   return {
     type: t.SET_CURRENT_USER,
@@ -55,7 +55,8 @@ export function logout() {
 export function login(data) {
   return async function(dispatch) {
     try {
-      const newUser = axios.post(`${t.API_URL}/users/signin`, data);
+      const newUser = await axios.post(`${t.API_URL}/users/signin`, data);
+
       const token = newUser.data.token;
       localStorage.setItem("jwtToken", token);
       setAuthorizationToken(token);
