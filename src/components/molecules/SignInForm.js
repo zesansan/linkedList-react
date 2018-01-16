@@ -4,8 +4,9 @@ import { TextField } from "material-ui";
 const SignInForm = props => {
 	return (
 		<div>
-			<form onSubmit={props.handleSubmit}>
+			<form onSubmit={props.handleSubmit} autocomplete="off">
 				<TextField
+					type="text"
 					hintText="Username"
 					name="userName"
 					floatingLabelText="Username"

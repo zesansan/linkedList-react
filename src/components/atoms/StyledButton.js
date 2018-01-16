@@ -7,11 +7,11 @@
 // 	background-color: #${props => (props.primary ? "47d1ae" : "d3d3d3")};
 // `;
 
-import FlatButton from "material-ui/FlatButton";
+import RaisedButton from "material-ui/RaisedButton";
 import React from "react";
 
 const StyledButton = props => (
-	<FlatButton
+	<RaisedButton
 		label={props.label}
 		primary={props.primary}
 		onClick={props.handleSubmit}

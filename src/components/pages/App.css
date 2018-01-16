@@ -19,3 +19,15 @@ body {
 .App-title {
 	font-size: 1em;
 }
+
+a:link {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+a {
+	font-size: 10pt;
+	color: #283593;
+}
