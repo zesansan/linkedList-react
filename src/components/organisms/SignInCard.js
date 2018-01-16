@@ -12,11 +12,12 @@ class SignInCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: "",
+      username: "",
       password: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange(e) {
@@ -30,7 +31,7 @@ class SignInCard extends Component {
     });
   }
   render() {
-    const { userName, password } = this.state;
+    const { username, password } = this.state;
     return (
       <div>
         <Logo />
@@ -40,18 +41,13 @@ class SignInCard extends Component {
             a sweet developer job or whatever.
           </h6>
           <SignInForm
-            userName={this.state.userName}
-            password={this.state.password}
-            value={(userName, password)}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
+            onSubmit={this.handleSubmit}
+            value={(username, password)}
           />
           <br />
-          <StyledButton
-            handleSubmit={this.handleSubmit}
-            primary={true}
-            label="Sign In"
-          />
+          <StyledButton onClick={this.handleSubmit} primary="false">
+            Log In!
+          </StyledButton>
           <p>
             <Link to="/signup">Don't have an acount? Sign Up!</Link>
           </p>
@@ -69,12 +65,5 @@ SignInCard.propTypes = {
   login: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => {
-  return {
-    userName: "",
-    password: ""
-  };
-};
-
 // export default SignInCard;
-export default withRouter(connect(mapStateToProps, userFunctions)(SignInCard));
+export default withRouter(connect(null, userFunctions)(SignInCard));
