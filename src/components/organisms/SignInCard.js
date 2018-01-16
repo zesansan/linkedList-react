@@ -46,9 +46,11 @@ class SignInCard extends Component {
             handleSubmit={this.handleSubmit}
           />
           <br />
-          <StyledButton onClick={this.handleSubmit} primary="false">
-            Log In!
-          </StyledButton>
+          <StyledButton
+            handleSubmit={this.handleSubmit}
+            primary={true}
+            label="Sign In"
+          />
           <p>
             <Link to="/signup">Don't have an acount? Sign Up!</Link>
           </p>

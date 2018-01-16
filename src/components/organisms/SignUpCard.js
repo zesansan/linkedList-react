@@ -52,7 +52,11 @@ class SignUpCard extends Component {
             photo={this.state.photo}
           />
           <p>
-            <StyledButton primary="true" onClick={this.handleSubmit}>
+            <StyledButton
+              primary={true}
+              handleSubmit={this.handleSubmit}
+              label="Sign me up!"
+            >
               Im In!
             </StyledButton>
           </p>
