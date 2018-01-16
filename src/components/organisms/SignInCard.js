@@ -12,7 +12,7 @@ class SignInCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      userName: "",
       password: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -31,7 +31,7 @@ class SignInCard extends Component {
     });
   }
   render() {
-    const { username, password } = this.state;
+    const { userName, password } = this.state;
     return (
       <div>
         <Logo />
@@ -42,7 +42,7 @@ class SignInCard extends Component {
           </h6>
           <SignInForm
             onSubmit={this.handleSubmit}
-            value={(username, password)}
+            value={(userName, password)}
           />
           <br />
           <StyledButton onClick={this.handleSubmit} primary="false">
