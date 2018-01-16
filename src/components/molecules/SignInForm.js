@@ -9,9 +9,10 @@ const SignInForm = props => {
 					Username:
 					<input
 						type="text"
-						name="username"
+						name="userName"
 						placeholder="username"
-						value={props.username}
+						onChange={props.handleChange}
+						value={props.userName}
 					/>
 				</label>
 				<br />
@@ -21,6 +22,7 @@ const SignInForm = props => {
 						type="password"
 						name="password"
 						placeholder="*********"
+						onChange={props.handleChange}
 						value={props.password}
 					/>
 				</label>
